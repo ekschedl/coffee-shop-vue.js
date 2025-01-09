@@ -2,19 +2,29 @@
     <header>
         <ul class="header d-flex justify-content-center justify-content-md-start flex-wrap">
             <li class="header__item">
-                <a href="./index.html">
+                <router-link to="/">
                     <img src="@/assets/logo/Logo.svg" alt="logo">
-                </a>
+                </router-link>
             </li>
+
             <li class="header__item">
-                <a href="@/assets/img/coffeepage.html">Our coffee</a>
+                <router-link to="/our-coffee">
+                    Our Coffee
+                </router-link>
             </li>
+            
             <li class="header__item">
-                <a href="@/assets/img/goodspage.html">For your pleasure</a>
+                <router-link to="/goods">
+                    For your pleasure
+                </router-link>
             </li>
+
             <li class="header__item">
-                <a href="@/assets/img/contacts.html">Contact us</a>
+                <router-link to="/contact">
+                    Contact us
+                </router-link>
             </li>
+
         </ul>
     </header>
 </template>

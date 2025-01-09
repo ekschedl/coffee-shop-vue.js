@@ -1,8 +1,10 @@
 <template>
     <div class="wrapper">
-        <hero-view />
+
+        <router-view />
 
         <footer-component/>
+
     </div>
 </template>
 
@@ -10,6 +12,7 @@
 
 import HeroView from '@/views/HeroView.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
+
 export default {
     components: {HeroView,FooterComponent}
  
@@ -17,9 +20,6 @@ export default {
 </script>
 
 <style>
-/* auchglobal*/
-/*span {
-    color:red;
-}*/
+
 
 </style>

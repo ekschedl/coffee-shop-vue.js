@@ -50,7 +50,6 @@
                                   <card-component />
                                   <card-component />
                                   <card-component />
-
                              </div>
                          </div>
                     </div>
@@ -64,6 +63,7 @@
 
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
+
 export default {
     components: {NavBarComponent, CardComponent}
 }</script>
