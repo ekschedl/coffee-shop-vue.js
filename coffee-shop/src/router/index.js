@@ -1,25 +1,34 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-import HeroView from '../views/HeroView.vue'
-import OurCoffeeView from '../views/OurCoffeeView.vue'
-import GoodsPageView from '../views/GoodsPageView.vue'
-import ContactView from '../views/ContactView.vue'
-import ThankYouView from '../views/ThankYouView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: HeroView },
-  { path: '/goods', component: GoodsPageView },
-  { path: '/our-coffee', component: OurCoffeeView },
-  { path: '/contact', component: ContactView },
-  { path: '/thank-you', component: ThankYouView },
+  { 
+    path: '/', 
+    component: () => import(/* webpackChunkName: "hero-view" */ '../views/HeroView.vue') 
+  },
+  { 
+    path: '/goods', 
+    component: () => import(/* webpackChunkName: "goods-page-view" */ '../views/GoodsPageView.vue') 
+  },
+  { 
+    path: '/our-coffee', 
+    component: () => import(/* webpackChunkName: "our-coffee-view" */ '../views/OurCoffeeView.vue') 
+  },
+  { 
+    path: '/contact', 
+    component: () => import(/* webpackChunkName: "contact-view" */ '../views/ContactView.vue') 
+  },
+  { 
+    path: '/thank-you', 
+    component: () => import(/* webpackChunkName: "thank-you-view" */ '../views/ThankYouView.vue') 
+  },
 ];
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
 });
 
 export default router;
