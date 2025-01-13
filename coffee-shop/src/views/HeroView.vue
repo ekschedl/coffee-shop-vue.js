@@ -65,5 +65,54 @@ import NavBarComponent from '@/components/NavBarComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
 
 export default {
-    components: {NavBarComponent, CardComponent}
-}</script>
+    components: {NavBarComponent, CardComponent},
+    data(){
+        return {
+            cards:[
+                {
+                    id: 0,
+                    icon: 'coffee-1.jpg',
+                    text: 'Solimo Coffee Beans 2kg',
+                    textPrice: '10.73$'
+                },
+                {
+                    id: 1,
+                    icon: 'coffee-2.jpg',
+                    text: 'Presto Coffee Beans 1kg',
+                    textPrice: '15.99$'
+                },
+              {
+                    id: 2,
+                    icon: 'coffee-3.jpg',
+                    text: 'AROMISTICO Coffee 1kg',
+                    textPrice: '6.99$'
+                },
+            ]
+        }
+    }
+}
+
+</script>
+                    
+                            <div class="best__item">
+                                <img src="./img/coffee-1.jpg" alt="coffee">
+                                <div class="best__item-title">
+                                    Solimo Coffee Beans 2kg
+                                </div>
+                                <div class="best__item-price">10.73$</div>
+                            </div>
+                            <div class="best__item">
+                                <img src="./img/coffee-2.jpg" alt="coffee">
+                                <div class="best__item-title">
+                                    Presto Coffee Beans 1kg
+                                </div>
+                                <div class="best__item-price">15.99$</div>
+                            </div>
+                            <div class="best__item">
+                                <img src="./img/coffee-3.jpg" alt="coffee">
+                                <div class="best__item-title">
+                                    AROMISTICO Coffee 1kg
+                                </div>
+                                <div class="best__item-price">6.99$</div>
+                            </div>
+                        </div>
