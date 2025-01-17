@@ -9,7 +9,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <h1 class="title-big">Everything You Love About Coffee</h1>
+                        <titel-header :classTitel="'title-big'" :text="pageTitle" />
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
@@ -78,11 +78,13 @@
 
 import NavBarComponent from '@/components/NavBarComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
+import TitelHeader from "@/components/TitelHeader.vue";
 
 export default {
-    components: {NavBarComponent, CardComponent},
+    components: {NavBarComponent, CardComponent, TitelHeader},
     data(){
         return {
+            pageTitle: "Everything You Love About Coffee",
             bestsellers:[
                 {
                     id: 0,
