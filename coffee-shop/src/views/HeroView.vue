@@ -47,9 +47,24 @@
                     <div class="row">
                          <div class="col-lg-10 offset-lg-1">
                              <div class="best__wrapper">
-                                  <card-component />
-                                  <card-component />
-                                  <card-component />
+                                  <card-component 
+                                    classItem="best__item"
+                                    :name="bestsellers[0].name"
+                                    :price="bestsellers[0].price"
+                                    :image="bestsellers[0].image"
+                                  />
+                                  <card-component 
+                                    classItem="best__item"
+                                    :name="bestsellers[1].name"
+                                    :price="bestsellers[1].price"
+                                    :image="bestsellers[1].image"
+                                  />
+                                  <card-component 
+                                    classItem="best__item"
+                                    :name="bestsellers[2].name"
+                                    :price="bestsellers[2].price"
+                                    :image="bestsellers[2].image"
+                                  />
                              </div>
                          </div>
                     </div>
@@ -68,24 +83,24 @@ export default {
     components: {NavBarComponent, CardComponent},
     data(){
         return {
-            cards:[
+            bestsellers:[
                 {
                     id: 0,
-                    icon: 'coffee-1.jpg',
-                    text: 'Solimo Coffee Beans 2kg',
-                    textPrice: '10.73$'
+                    name: 'Solimo Coffee Beans 2kg',
+                    price: '10.73',
+                    image: 'coffee-1.jpg'
                 },
                 {
                     id: 1,
-                    icon: 'coffee-2.jpg',
-                    text: 'Presto Coffee Beans 1kg',
-                    textPrice: '15.99$'
+                    name: 'Presto Coffee Beans 1kg',
+                    price: '15.99',
+                    image: 'coffee-2.jpg'
                 },
               {
                     id: 2,
-                    icon: 'coffee-3.jpg',
-                    text: 'AROMISTICO Coffee 1kg',
-                    textPrice: '6.99$'
+                    name: 'AROMISTICO Coffee 1kg',
+                    price: '6.99',
+                    image: 'coffee-3.jpg'
                 },
             ]
         }
