@@ -1,7 +1,7 @@
 <template>
-  <li :class="classLi">
-    <router-link :to="links[1].link">
-      {{ links[1].text }}
+  <li :class="classList">
+    <router-link :to="link">
+      {{ text }}
     </router-link>
   </li>
 </template>
@@ -12,7 +12,10 @@ export default {
     text: {
       type: String,
     },
-    classLi: {
+    link: {
+      type: String,
+    },
+    classList: {
       type: String,
       required: true,
     },

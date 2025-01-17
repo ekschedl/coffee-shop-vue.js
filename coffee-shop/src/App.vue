@@ -9,9 +9,8 @@
 <script>
 import HeroView from "@/views/HeroView.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import ListItem from "@/components/ListItem.vue";
 export default {
-  components: { HeroView, FooterComponent, ListItem },
+  components: { HeroView, FooterComponent },
 };
 </script>
 
