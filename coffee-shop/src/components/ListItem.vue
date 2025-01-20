@@ -1,7 +1,7 @@
 <template>
   <li :class="classList">
     <router-link :to="link">
-      {{ text }}
+      {{ text }} <slot></slot>
     </router-link>
   </li>
 </template>
@@ -9,10 +9,12 @@
 <script>
 export default {
   props: {
-    text: {
+    link: {
+      required: true,
       type: String,
     },
-    link: {
+    text: {
+      required: false,
       type: String,
     },
     classList: {
