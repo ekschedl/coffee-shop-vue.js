@@ -74,7 +74,7 @@
                   :key="coffeeItem.id"
                   classItem="shop__item"
                   :name="coffeeItem.name"
-                  :price="coffeeItem.price"
+                  :price="parseFloat(coffeeItem.price)"
                   :image="coffeeItem.image"
               />
             </div>

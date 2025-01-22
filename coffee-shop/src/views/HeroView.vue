@@ -13,12 +13,17 @@
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
-                        <a href="./coffeepage.html" class="preview__btn">More</a>
+                        <a 
+                            href="./coffeepage.html"
+                            @click.prevent="smoothScroll" 
+                            class="preview__btn"
+                                >More
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="about">
+        <section class="about" id="about" ref="about">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
@@ -43,7 +48,7 @@
         </section>
         <section class="best">
             <div class="container">
-                <div class="title">Our best
+                <div class="title" ref="ourBest">Our best
                     <div class="row">
                          <div class="col-lg-10 offset-lg-1">
                              <div class="best__wrapper">
@@ -52,7 +57,7 @@
                                     :key="bestseller.id"
                                     classItem="best__item"
                                     :name="bestseller.name"
-                                    :price="bestseller.price"
+                                    :price="parseFloat(bestseller.price)"
                                     :image="bestseller.image"
                                     />
                              </div>
@@ -70,6 +75,8 @@ import NavBarComponent from '@/components/NavBarComponent.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import TitelHeader from "@/components/TitelHeader.vue";
 import { v4 as uuidv4 } from 'uuid'
+import { log10 } from 'core-js/core/number';
+import { scrollIntoView } from "seamless-scroll-polyfill";
 
 
 export default {
@@ -97,8 +104,24 @@ export default {
                     image: 'coffee-3.jpg'
                 },
             ]
+        };
+    },
+    methods: {
+        smoothScroll() {
+            // this.$refs.ourBest.scrollIntoView({ #  bad fo Safari
+            //     block:'start',
+            //     behavior: 'smooth'
+            // })
+
+            //cross-browser:
+            scrollIntoView(this.$refs.ourBest, {
+                 behavior: "smooth", 
+                 block: "start",                 }
+                );
+
         }
-    }
+    },
+  
 }
 
 </script>

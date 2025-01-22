@@ -53,7 +53,7 @@
                 v-for="good in goods"
                   :key="good.id"
                   :name="good.name"
-                  :price="good.price"
+                  :price="parseFloat(good.price)"  
                   :image="good.image"
                   classItem="shop__item"
               ></card-component>

@@ -5,12 +5,12 @@
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
               <list-item
-                  :link="links.header.link"
+                  :link="links.footer.link"
                   :classList="'footer__item'"
                 > 
                 <img
-                  :src="require(`@/assets/logo/${links.header.icon}`)"
-                  :alt="links.header.icon"
+                  :src="require(`@/assets/logo/${links.footer.icon}`)"
+                  :alt="links.footer.icon"
                 />
               </list-item>
 
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       links: {
-        header:  {
+        footer:  {
             id: 0,
             icon: "Logo_black.svg",
             link: "/",
