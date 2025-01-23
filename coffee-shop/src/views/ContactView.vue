@@ -30,7 +30,7 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input v-model="form.nameInput" type="text" class="form-control" id="name-input" />
+                  <input v-model="form.name" type="text" class="form-control" id="name-input" />
                 </div>
               </div>
 
@@ -42,7 +42,7 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input v-model="form.emailInput"type="email" class="form-control" id="email-input" />
+                  <input v-model="form.email"type="email" class="form-control" id="email-input" />
                 </div>
               </div>
 
@@ -51,7 +51,7 @@
                   <label for="phone-input" class="mb-0"> Phone </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input v-model="form.phoneInput"type="tel" class="form-control" id="phone-input" />
+                  <input v-model="form.phone"type="tel" class="form-control" id="phone-input" />
                 </div>
               </div>
 
@@ -97,16 +97,16 @@ export default {
     return {
       pageTitle: "Contact us",
       form: {
-        nameInput: "",
-        emailInput: "",
-        phoneInput: "",
+        name: "",
+        email: "",
+        phone: "",
         message: "",
       },
     };
   },
   methods: {
-    submit(event) {
-      console.log(event.target);
+    submit() {
+      console.log(this.form);
     },
   },
 };
