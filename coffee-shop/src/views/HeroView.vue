@@ -81,29 +81,14 @@ import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
     components: {NavBarComponent, CardComponent, TitelHeader},
+    computed: {
+        bestsellers() {
+        return this.$store.getters["getBestsellersCard"].bestsellers;
+        },
+    },
     data(){
         return {
             pageTitle: "Everything You Love About Coffee",
-            bestsellers:[
-                {
-                    id: uuidv4(),
-                    name: 'Solimo Coffee Beans 2kg',
-                    price: '10.73',
-                    image: 'coffee-1.jpg'
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Presto Coffee Beans 1kg',
-                    price: '15.99',
-                    image: 'coffee-2.jpg'
-                },
-              {
-                    id: uuidv4(),
-                    name: 'AROMISTICO Coffee 1kg',
-                    price: '6.99',
-                    image: 'coffee-3.jpg'
-                },
-            ]
         };
     },
     methods: {
