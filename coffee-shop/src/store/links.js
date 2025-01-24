@@ -29,9 +29,15 @@ const links = {
     ],
   },
   getters: {
-    getHeaderslinks(state) {
+    getHeaderlinks(state) {
       return {
         header: state.header,
+        other: state.other,
+      };
+    },
+    getFooterlinks(state) {
+      return {
+        footer: state.footer,
         other: state.other,
       };
     },

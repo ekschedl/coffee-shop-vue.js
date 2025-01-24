@@ -39,34 +39,39 @@ import ListItem from "@/components/ListItem";
 
 export default {
   components: { ListItem },
-  data() {
-    return {
-      links: {
-        footer:  {
-            id: 0,
-            icon: "Logo_black.svg",
-            link: "/",
-          },
-        other:
-          [
-            {
-              id: 1,
-              text: "Our Coffee",
-              link: "/our-coffee",
-            },
-            {
-              id: 2,
-              text: "For your pleasure",
-              link: "/goods",
-            },
-            {
-              id: 3,
-              text: "Contact us",
-              link: "/contact",
-            },
-          ],
-      },
-    };
+  // data() {
+  //   return {
+  //     links: {
+  //       footer:  {
+  //           id: 0,
+  //           icon: "Logo_black.svg",
+  //           link: "/",
+  //         },
+  //       other:
+  //         [
+  //           {
+  //             id: 1,
+  //             text: "Our Coffee",
+  //             link: "/our-coffee",
+  //           },
+  //           {
+  //             id: 2,
+  //             text: "For your pleasure",
+  //             link: "/goods",
+  //           },
+  //           {
+  //             id: 3,
+  //             text: "Contact us",
+  //             link: "/contact",
+  //           },
+  //         ],
+  //     },
+  //   };
+  // },
+  computed: {
+    links() {
+      return this.$store.getters["getFooterlinks"];
+    },
   },
 };
 </script>

@@ -59,7 +59,7 @@ export default {
   // },
   computed: {
     links() {
-      return this.$store.getters["getHeaderslinks"];
+      return this.$store.getters["getHeaderlinks"];
     },
   },
 };
