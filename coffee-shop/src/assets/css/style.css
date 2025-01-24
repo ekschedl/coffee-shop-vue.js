@@ -423,4 +423,12 @@ footer {
   text-decoration: none;
   color: #000;
 }
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+      max-width: 100% !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
+
