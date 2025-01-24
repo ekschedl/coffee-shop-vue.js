@@ -305,6 +305,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+
 }
 
 .shop__item {
@@ -429,6 +430,8 @@ footer {
       max-width: 100% !important;
   }
 }
+
+
 
 /*# sourceMappingURL=style.css.map */
 
