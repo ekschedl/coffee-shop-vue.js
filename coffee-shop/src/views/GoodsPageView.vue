@@ -70,6 +70,7 @@ import NavBarComponent from "../components/NavBarComponent.vue";
 import CardComponent from "../components/CardComponent.vue";
 import TitelHeader from "@/components/TitelHeader.vue";
 import { v4 as uuidv4 } from 'uuid'
+import { navigate} from '../mixins/navigate'
 
 export default {
   components: { NavBarComponent, CardComponent, TitelHeader },
@@ -78,18 +79,14 @@ export default {
         return this.$store.getters["getGoodsCard"].goods;
         },
   },
-  methods: {
-    navigate(id){
-      this.$router.push(
-        {name:'goods', 
-         params:{id:id}
-      })
-    }
-  },
-  data() {
+  data(){
     return {
       pageTitle: "For your pleasure",
-    };
+      name: "goods", 
+
+    }
   },
+  mixins: [navigate],
+
 };
 </script>

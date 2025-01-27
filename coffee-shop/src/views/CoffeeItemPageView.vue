@@ -34,7 +34,7 @@
                         </div>
                         <div class="shop__point">
                             <span>Price:</span>
-                            <span class="shop__point-price"> {{ card.price }} $</span>
+                            <span class="shop__point-price"> {{ card.price | addCurrency }} </span>
                         </div>
                     </div>
                 </div>
@@ -53,6 +53,8 @@
     
     export default {
       components: { NavBarComponent },
+      
+
       data() {
         return {
           pageTitle: "Our Coffee",
