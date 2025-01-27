@@ -73,10 +73,11 @@
                 v-for="coffeeItem in coffee"
                   :key="coffeeItem.id"
                   classItem="shop__item"
-                  :name="coffeeItem.name"
-                  :price="parseFloat(coffeeItem.price)"
-                  :image="coffeeItem.image"
+                  :card="coffeeItem"
+                  @onNavigate="navigate"
               />
+
+              <!-- /our-coffee/item -->
             </div>
           </div>
         </div>
@@ -99,10 +100,18 @@ export default {
         return this.$store.getters["getCoffeeCard"].coffee;
         },
     },
+  methods: {
+    navigate(id){
+      this.$router.push(
+        {name:'coffee', 
+         params:{id:id}
+      }
+    )
+    }
+  },
   data() {
     return {
       pageTitle: "Our Coffee",
-
     };
   },
 };

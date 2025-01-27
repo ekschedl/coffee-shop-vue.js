@@ -56,9 +56,7 @@
                                   v-for="bestseller in bestsellers"
                                     :key="bestseller.id"
                                     classItem="best__item"
-                                    :name="bestseller.name"
-                                    :price="parseFloat(bestseller.price)"
-                                    :image="bestseller.image"
+                                    :card="bestseller"
                                     />
                              </div>
                          </div>
@@ -91,7 +89,9 @@ export default {
             pageTitle: "Everything You Love About Coffee",
         };
     },
-    methods: {
+  
+    methods: {   
+   
         smoothScroll() {
             // this.$refs.ourBest.scrollIntoView({ #  bad fo Safari
             //     block:'start',

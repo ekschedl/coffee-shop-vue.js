@@ -52,10 +52,9 @@
               <card-component
                 v-for="good in goods"
                   :key="good.id"
-                  :name="good.name"
-                  :price="parseFloat(good.price)"  
-                  :image="good.image"
                   classItem="shop__item"
+                  :card="good"
+                   @onNavigate="navigate"
               ></card-component>
               
             </div>
@@ -79,47 +78,17 @@ export default {
         return this.$store.getters["getGoodsCard"].goods;
         },
   },
+  methods: {
+    navigate(id){
+      this.$router.push(
+        {name:'goods', 
+         params:{id:id}
+      })
+    }
+  },
   data() {
     return {
       pageTitle: "For your pleasure",
-      // goods: [
-      //   {
-      //     id: uuidv4(),
-      //     name: "Solimo Coffee Beans 2kg",
-      //     price: "10.73",
-      //     image: "coffee-1.jpg",
-      //   },
-      //   {
-      //     id: uuidv4(),
-      //     name: "Presto Coffee Beans 1kg",
-      //     price: "15.99",
-      //     image: "coffee-2.jpg",
-      //   },
-      //   {
-      //     id: uuidv4(),
-      //     name: "AROMISTICO Coffee 1kg",
-      //     price: "6.99",
-      //     image: "coffee-3.jpg",
-      //   },
-      //   {
-      //     id: uuidv4(),
-      //     name: "Solimo Coffee Beans 2kg",
-      //     price: "10.73",
-      //     image: "coffee-1.jpg",
-      //   },
-      //   {
-      //     id: uuidv4(),
-      //     name: "Presto Coffee Beans 1kg",
-      //     price: "15.99",
-      //     image: "coffee-2.jpg",
-      //   },
-      //   {
-      //     id: uuidv4(),
-      //     name: "AROMISTICO Coffee 1kg",
-      //     price: "6.99",
-      //     image: "coffee-3.jpg",
-      //   },
-      // ],
     };
   },
 };

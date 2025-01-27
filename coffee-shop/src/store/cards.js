@@ -115,6 +115,16 @@ const cards = {
         coffee: state.coffee,
       };
     },
+    getProductById(state) {
+      return (id) => {
+        const allProducts = [
+          ...state.goods,
+          ...state.bestsellers,
+          ...state.coffee,
+        ];
+        return allProducts.find((card) => card.id === id);
+      };
+    },
   },
 };
 export default cards;
