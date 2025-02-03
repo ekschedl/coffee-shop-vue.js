@@ -36,7 +36,11 @@
                     class="form-control"
                     id="name-input"
                   />
-                  <span v-for="error in v$.name.$errors" :key="error.$uid">
+                  <span
+                    v-for="error in v$.name.$errors"
+                    :key="error.$uid"
+                    class="error-message"
+                  >
                     {{ error.$message }}
                   </span>
                 </div>
@@ -56,7 +60,11 @@
                     class="form-control"
                     id="email-input"
                   />
-                  <span v-for="error in v$.email.$errors" :key="error.$uid">
+                  <span
+                    v-for="error in v$.email.$errors"
+                    :key="error.$uid"
+                    class="error-message"
+                  >
                     {{ error.$message }}
                   </span>
                 </div>
@@ -73,7 +81,11 @@
                     class="form-control"
                     id="phone-input"
                   />
-                  <span v-for="error in v$.phone.$errors" :key="error.$uid">
+                  <span
+                    v-for="error in v$.phone.$errors"
+                    :key="error.$uid"
+                    class="error-message"
+                  >
                     {{ error.$message }}
                   </span>
                 </div>
@@ -95,7 +107,11 @@
                     placeholder="Leave your comments here"
                     v-model="v$.message.$model"
                   ></textarea>
-                  <span v-for="error in v$.message.$errors" :key="error.$uid">
+                  <span
+                    v-for="error in v$.message.$errors"
+                    :key="error.$uid"
+                    class="error-message"
+                  >
                     {{ error.$message }}
                   </span>
                 </div>
@@ -103,7 +119,21 @@
                   {{ v$.message }}
                 </pre> -->
               </div>
-
+              <label>
+                <input
+                  v-model="v$.agreement.$model"
+                  type="checkbox"
+                  name="agreement"
+                />
+                Agree with the offer contract
+              </label>
+              <span
+                v-for="error in v$.agreement.$errors"
+                :key="error.$uid"
+                class="error-message"
+              >
+                {{ error.$message }}
+              </span>
               <div class="row">
                 <div class="col">
                   <button type="submit" class="btn btn-outline-dark send-btn">
@@ -138,6 +168,7 @@ export default {
       email: "",
       phone: "",
       message: "",
+      agreement: true,
     };
   },
   components: {
@@ -154,6 +185,12 @@ export default {
         maxLength: maxLength(20),
         minLength: helpers.withMessage("this value min 5", minLength),
       },
+      agreement: {
+        required: helpers.withMessage(
+          "You must agree with the offer contract",
+          (value) => value === true
+        ),
+      },
     };
   },
   methods: {
@@ -167,8 +204,18 @@ export default {
         phone: this.phone,
         email: this.email,
         message: this.message,
+        agreement: this.agreement,
       });
     },
   },
 };
 </script>
+
+<style scoped>
+.error-message {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+}
+</style>
