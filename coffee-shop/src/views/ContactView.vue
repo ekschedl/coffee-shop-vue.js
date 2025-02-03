@@ -99,6 +99,9 @@
                     {{ error.$message }}
                   </span>
                 </div>
+                <!-- <pre>
+                  {{ v$.message }}
+                </pre> -->
               </div>
 
               <div class="row">
@@ -121,6 +124,8 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import TitelHeader from "@/components/TitelHeader.vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, maxLength } from "@vuelidate/validators";
+import { helpers } from "@vuelidate/validators";
+import { minLength } from "../validators/minLength";
 
 export default {
   setup() {
@@ -144,11 +149,26 @@ export default {
       name: { required },
       email: { required, email },
       phone: {},
-      message: { required, maxLength: maxLength(20) },
+      message: {
+        required,
+        maxLength: maxLength(20),
+        minLength: helpers.withMessage("this value min 5", minLength),
+      },
     };
   },
   methods: {
-    submit() {},
+    async submit() {
+      const isFormCorrect = await this.v$.$validate();
+      // you can show some extra alert to the user or just leave the each field to show it's `$errors`.
+      if (!isFormCorrect) return;
+      // actually submit form
+      console.log({
+        name: this.name,
+        phone: this.phone,
+        email: this.email,
+        message: this.message,
+      });
+    },
   },
 };
 </script>
