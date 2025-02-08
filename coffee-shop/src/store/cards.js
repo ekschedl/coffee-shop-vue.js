@@ -1,3 +1,5 @@
+// cards.js
+
 import { v4 as uuidv4 } from "uuid";
 
 const cards = {
@@ -98,6 +100,16 @@ const cards = {
         image: "coffee-3.jpg",
       },
     ],
+  },
+  mutations: {
+    setCoffeeData(state, data) {
+      state.coffee = data;
+    },
+  },
+  actions: {
+    setCoffeeData({ commit }, data) {
+      commit("setCoffeeData", data);
+    },
   },
   getters: {
     getGoodsCard(state) {

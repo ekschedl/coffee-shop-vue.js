@@ -1,3 +1,4 @@
+<!--OurCoffeeView.vue -->
 <template>
   <main>
     <div class="banner coffepage-banner">
@@ -71,10 +72,10 @@
             <div class="shop__wrapper">
               <card-component
                 v-for="coffeeItem in coffee"
-                  :key="coffeeItem.id"
-                  classItem="shop__item"
-                  :card="coffeeItem"
-                  @onNavigate="navigate"
+                :key="coffeeItem.id"
+                classItem="shop__item"
+                :card="coffeeItem"
+                @onNavigate="navigate"
               />
 
               <!-- /our-coffee/item -->
@@ -90,23 +91,29 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import TitelHeader from "@/components/TitelHeader.vue";
-import { v4 as uuidv4 } from 'uuid'
-import { navigate} from '../mixins/navigate'
+import { v4 as uuidv4 } from "uuid";
+import { navigate } from "../mixins/navigate";
 
 export default {
   components: { NavBarComponent, CardComponent, TitelHeader },
   computed: {
     coffee() {
-        return this.$store.getters["getCoffeeCard"].coffee;
-        },
+      return this.$store.getters["getCoffeeCard"].coffee;
     },
-  data(){
+  },
+  data() {
     return {
-      name: 'coffee',
+      name: "coffee",
       pageTitle: "Our Coffee",
-    }
+    };
   },
   mixins: [navigate],
-
+  mounted() {
+    fetch("http://localhost:3000/coffee")
+      .then((res) => res.json())
+      .then((data) => {
+        this.$store.dispatch("setCoffeeData", data);
+      });
+  },
 };
 </script>
