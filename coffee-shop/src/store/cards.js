@@ -105,10 +105,22 @@ const cards = {
     setCoffeeData(state, data) {
       state.coffee = data;
     },
+    setBestellersData(state, data) {
+      state.bestsellers = data;
+    },
+    setGoodsData(state, data) {
+      state.goods = data;
+    },
   },
   actions: {
     setCoffeeData({ commit }, data) {
       commit("setCoffeeData", data);
+    },
+    setBestellersData({ commit }, data) {
+      commit("setBestellersData", data);
+    },
+    setGoodsData({ commit }, data) {
+      commit("setGoodsData", data);
     },
   },
   getters: {
