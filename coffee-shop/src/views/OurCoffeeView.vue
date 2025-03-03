@@ -53,6 +53,7 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
+                v-model="searchValue"
               />
             </form>
           </div>
@@ -99,6 +100,14 @@ export default {
   computed: {
     coffee() {
       return this.$store.getters["getCoffeeCard"].coffee;
+    },
+    searchValue: {
+      get() {
+        return this.$store.getters["getSearchValue"];
+      },
+      set(value) {
+        this.$store.dispatch("setSearchValue", value);
+      },
     },
   },
   data() {
