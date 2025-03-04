@@ -101,6 +101,7 @@ const cards = {
       // },
     ],
     searchValue: "",
+    sortValue: "",
   },
   mutations: {
     setCoffeeData(state, data) {
@@ -114,6 +115,9 @@ const cards = {
     },
     setSearchValue(state, value) {
       state.searchValue = value;
+    },
+    setSortValue(state, value) {
+      state.sortValue = value;
     },
   },
   actions: {
@@ -129,27 +133,42 @@ const cards = {
     setSearchValue({ commit }, value) {
       commit("setSearchValue", value);
     },
+    setSortValue({ commit }, value) {
+      commit("setSortValue", value);
+    },
   },
   getters: {
     getGoodsCard(state) {
       return {
-        goods: state.goods.filter((item) =>
-          item.name.toLowerCase().includes(state.searchValue.toLowerCase())
-        ),
+        goods: state.goods
+          .filter((item) =>
+            item.name.toLowerCase().includes(state.searchValue.toLowerCase())
+          )
+          .filter((item) =>
+            item.country.toLowerCase().includes(state.sortValue.toLowerCase())
+          ),
       };
     },
     getBestsellersCard(state) {
       return {
-        bestsellers: state.bestsellers.filter((item) =>
-          item.name.toLowerCase().includes(state.searchValue.toLowerCase())
-        ),
+        bestsellers: state.bestsellers
+          .filter((item) =>
+            item.name.toLowerCase().includes(state.searchValue.toLowerCase())
+          )
+          .filter((item) =>
+            item.country.toLowerCase().includes(state.sortValue.toLowerCase())
+          ),
       };
     },
     getCoffeeCard(state) {
       return {
-        coffee: state.coffee.filter((item) =>
-          item.name.toLowerCase().includes(state.searchValue.toLowerCase())
-        ),
+        coffee: state.coffee
+          .filter((item) =>
+            item.name.toLowerCase().includes(state.searchValue.toLowerCase())
+          )
+          .filter((item) =>
+            item.country.toLowerCase().includes(state.sortValue.toLowerCase())
+          ),
       };
     },
     getProductById: (state) => (id) => {
