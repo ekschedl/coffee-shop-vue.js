@@ -55,6 +55,7 @@
                 class="shop__search-input"
                 v-model="searchValue"
               />
+              <button type="button" @click="clearFilters">Clear filters</button>
             </form>
           </div>
           <div class="col-lg-4">
@@ -100,6 +101,7 @@ import CardComponent from "@/components/CardComponent.vue";
 import TitelHeader from "@/components/TitelHeader.vue";
 import { v4 as uuidv4 } from "uuid";
 import { navigate } from "../mixins/navigate";
+import debounce from "debounce";
 
 export default {
   components: { NavBarComponent, CardComponent, TitelHeader },
@@ -111,9 +113,9 @@ export default {
       get() {
         return this.$store.getters["getSearchValue"];
       },
-      set(value) {
+      set: debounce(function (value) {
         this.$store.dispatch("setSearchValue", value);
-      },
+      }, 300), // 300 мс задержка перед обновлением состояния
     },
   },
   data() {
@@ -133,6 +135,10 @@ export default {
   methods: {
     onSort(value) {
       this.$store.dispatch("setSortValue", value);
+    },
+    clearFilters() {
+      this.$store.dispatch("setSearchValue", "");
+      this.$store.dispatch("setSortValue", "");
     },
   },
 };
